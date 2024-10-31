@@ -1,41 +1,97 @@
-//
-//  PaymentAppUITests.swift
-//  PaymentAppUITests
-//
-//  Created by user on 10/30/24.
-//
-
 import XCTest
 
-final class PaymentAppUITests: XCTestCase {
+class PaymentAppUITests: XCTestCase {
+    
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        // Setup code here. This method is called before the invocation of each test method in the class.
+        app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testLoginWithValidCredentials() {
+        // Tap on the username field and enter valid username
+        XCTAssertTrue(app.textFields["UsernameField"].waitForExistence(timeout: 5), "Username field did not appear in time")
+        app.textFields["UsernameField"].tap()
+        app.textFields["UsernameField"].typeText("testUser")
+
+        // Tap on the password field and enter valid password
+        let passwordField = app.secureTextFields["PasswordField"]
+        XCTAssertTrue(passwordField.waitForExistence(timeout: 5), "Password field did not appear in time")
+        passwordField.tap()
+        passwordField.typeText("testPassword")
+
+        // Dismiss the keyboard by tapping outside the text fields
+        app.tap() // This will tap on the app area to dismiss the keyboard
+
+        // Tap on the login button
+        app.buttons["LoginButton"].tap()
+
+        // Verify that the account screen is displayed
+        XCTAssertTrue(app.staticTexts["AccountTitle"].exists, "Account title does not exist after logging in")
+        XCTAssertTrue(app.staticTexts["BalanceLabel"].exists, "Balance label does not exist after logging in")
+    }
+
+    func testLoginWithInvalidCredentials() {
+        // Tap on the username field and enter invalid username
+        XCTAssertTrue(app.textFields["UsernameField"].waitForExistence(timeout: 5), "Username field did not appear in time")
+        app.textFields["UsernameField"].tap()
+        app.textFields["UsernameField"].typeText("invalidUser")
+
+        // Tap on the password field and enter invalid password
+        let passwordField = app.secureTextFields["PasswordField"]
+        XCTAssertTrue(passwordField.waitForExistence(timeout: 5), "Password field did not appear in time")
+        passwordField.tap()
+        passwordField.typeText("invalidPassword")
+
+        // Dismiss the keyboard by tapping outside the text fields
+        app.tap() // This will tap on the app area to dismiss the keyboard
+
+        // Tap on the login button
+        app.buttons["LoginButton"].tap()
+
+        // Verify that the error message is displayed
+        XCTAssertTrue(app.staticTexts["ErrorMessage"].exists, "Error message does not exist after invalid login")
+    }
+
+    func testLogout() {
+        // First, log in with valid credentials
+        XCTAssertTrue(app.textFields["UsernameField"].waitForExistence(timeout: 5), "Username field did not appear in time")
+        app.textFields["UsernameField"].tap()
+        app.textFields["UsernameField"].typeText("testUser")
+
+        // Ensure the secure text field is tapped and focused
+        let passwordField = app.secureTextFields["PasswordField"]
+        XCTAssertTrue(passwordField.waitForExistence(timeout: 5), "Password field did not appear in time")
+        passwordField.tap()
+        passwordField.typeText("testPassword")
+
+        // Add a slight delay to ensure the password is fully entered
+        sleep(1)
+
+        // Dismiss the keyboard by tapping outside the text fields
+        app.tap() // This will tap on the app area to dismiss the keyboard
+
+        // Tap the login button
+        app.buttons["LoginButton"].tap()
+
+        // Add a short delay to allow the UI to update
+        sleep(1)
+
+        // Verify that the account screen is displayed
+        XCTAssertTrue(app.staticTexts["AccountTitle"].exists, "Account title does not exist after logging in")
+        
+        // Check for the existence of the Logout button before tapping
+        let logoutButton = app.buttons["LogoutButton"]
+        XCTAssertTrue(logoutButton.waitForExistence(timeout: 5), "Logout button does not exist")
+
+        // Tap the logout button
+        logoutButton.tap()
+
+        // Verify that the login screen is displayed again
+        XCTAssertTrue(app.textFields["UsernameField"].exists, "Username field does not exist after logging out")
+        XCTAssertTrue(app.secureTextFields["PasswordField"].exists, "Password field does not exist after logging out")
+        XCTAssertTrue(app.buttons["LoginButton"].exists, "Login button does not exist after logging out")
     }
 }

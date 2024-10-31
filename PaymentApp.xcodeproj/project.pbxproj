@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CE8F9B5D2CD32DC300E23531 /* PaymentAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9B5C2CD32DC300E23531 /* PaymentAppApp.swift */; };
-		CE8F9B5F2CD32DC300E23531 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9B5E2CD32DC300E23531 /* ContentView.swift */; };
+		CE8F9B5F2CD32DC300E23531 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9B5E2CD32DC300E23531 /* LoginScreen.swift */; };
 		CE8F9B612CD32DC700E23531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8F9B602CD32DC700E23531 /* Assets.xcassets */; };
 		CE8F9B642CD32DC700E23531 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8F9B632CD32DC700E23531 /* Preview Assets.xcassets */; };
 		CE8F9B6E2CD32DC700E23531 /* PaymentAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9B6D2CD32DC700E23531 /* PaymentAppTests.swift */; };
 		CE8F9B782CD32DC700E23531 /* PaymentAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9B772CD32DC700E23531 /* PaymentAppUITests.swift */; };
 		CE8F9B7A2CD32DC700E23531 /* PaymentAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9B792CD32DC700E23531 /* PaymentAppUITestsLaunchTests.swift */; };
+		CE8F9B872CD32E0800E23531 /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9B862CD32E0800E23531 /* AccountScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		CE8F9B592CD32DC300E23531 /* PaymentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaymentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8F9B5C2CD32DC300E23531 /* PaymentAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAppApp.swift; sourceTree = "<group>"; };
-		CE8F9B5E2CD32DC300E23531 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE8F9B5E2CD32DC300E23531 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		CE8F9B602CD32DC700E23531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE8F9B632CD32DC700E23531 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE8F9B692CD32DC700E23531 /* PaymentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaymentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		CE8F9B732CD32DC700E23531 /* PaymentAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaymentAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8F9B772CD32DC700E23531 /* PaymentAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAppUITests.swift; sourceTree = "<group>"; };
 		CE8F9B792CD32DC700E23531 /* PaymentAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE8F9B862CD32E0800E23531 /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				CE8F9B5C2CD32DC300E23531 /* PaymentAppApp.swift */,
-				CE8F9B5E2CD32DC300E23531 /* ContentView.swift */,
+				CE8F9B5E2CD32DC300E23531 /* LoginScreen.swift */,
+				CE8F9B862CD32E0800E23531 /* AccountScreen.swift */,
 				CE8F9B602CD32DC700E23531 /* Assets.xcassets */,
 				CE8F9B622CD32DC700E23531 /* Preview Content */,
 			);
@@ -257,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8F9B5F2CD32DC300E23531 /* ContentView.swift in Sources */,
+				CE8F9B872CD32E0800E23531 /* AccountScreen.swift in Sources */,
+				CE8F9B5F2CD32DC300E23531 /* LoginScreen.swift in Sources */,
 				CE8F9B5D2CD32DC300E23531 /* PaymentAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
